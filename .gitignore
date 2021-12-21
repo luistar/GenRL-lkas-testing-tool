@@ -129,3 +129,6 @@ dmypy.json
 .pyre/
 results/
 simulations/
+
+# Pycharm
+.idea/*
