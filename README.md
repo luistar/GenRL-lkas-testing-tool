@@ -1,3 +1,13 @@
+# CaRL at the Cyber-Physical Systems Testing Competition #
+
+CaRL is a reinforcement-learning based solution to generate effective test cases for a lane-keeping system in a simulated
+environment.
+
+Install additional dependencies with
+```
+pip install -r additional-requirements.txt 
+```
+
 # Cyber-Physical Systems Testing Competition #
 
 The [SBST Workshop](https://sbst22.github.io/) offers a challenge for software testers who want to work with self-driving cars in the context of the usual [tool competition](https://sbst22.github.io/tools/).
