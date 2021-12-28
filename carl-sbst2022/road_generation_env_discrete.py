@@ -203,26 +203,33 @@ class RoadGenerationDiscreteEnv(RoadGenerationEnv):
         logging.debug("Evaluating step. Current number of road points: %d (%s)", len(road_points), str(road_points))
 
         if len(road_points) < 3:  # cannot generate a good test (at most, a straight road with 2 points)
+            logging.debug("Test with less than 3 points. Negative reward.")
             reward = -10
         else:  # we should be able to generate a road with at least one turn
             the_test = RoadTestFactory.create_road_test(road_points)
             # check whether the road is a valid one
             is_valid, validation_message = self.executor.validate_test(the_test)
             if is_valid:
+                logging.debug("Test seems valid")
                 # we run the test in the simulator
                 test_outcome, description, execution_data = self.executor.execute_test(the_test)
                 logging.debug(f"Simulation results: {test_outcome}, {description}, {execution_data}")
                 if test_outcome == "ERROR":
                     # Could not simulate the test case. Probably the test is malformed test and evaded preliminary validation.
+                    logging.debug("Test seemed valid, but test outcome was ERROR. Negative reward.")
                     reward = -10  # give same reward as invalid test case
                 elif test_outcome == "PASS":
                     # Test is valid, and passed. Compute reward based on execution data
                     reward = self.compute_reward(execution_data)
+                    logging.debug(f"Test is valid and passed. Reward was {reward}, with {max_oob_percentage} OOB.")
                     max_oob_percentage = execution_data[0].max_oob_percentage
                 elif test_outcome == "FAIL":
                     reward = 100
                     max_oob_percentage = execution_data[0].max_oob_percentage
+                    logging.debug(f"Test is valid and failed. Reward was {reward}, with {max_oob_percentage} OOB.")
                     # todo save current test
+            else:
+                logging.debug(f"Test is invalid: {validation_message}")
         return reward, max_oob_percentage
 
     def get_road_points(self):

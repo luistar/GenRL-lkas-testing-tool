@@ -22,7 +22,7 @@ test_executor = BeamngExecutor(generation_budget=10000, execution_budget=10000, 
                                beamng_user="D:\\BeamNG_user\\", road_visualizer=RoadTestVisualizer(map_size=200))
 
 #env = RoadGenerationContinuousEnv(test_executor, max_number_of_points=20)
-env = RoadGenerationDiscreteEnv(test_executor, max_number_of_points=20)
+env = RoadGenerationDiscreteEnv(test_executor, max_number_of_points=5)
 
 # Instantiate the agent
 model = PPO('MlpPolicy', env, verbose=1)
