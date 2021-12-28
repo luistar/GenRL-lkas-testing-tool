@@ -17,59 +17,46 @@ from code_pipeline.visualization import RoadTestVisualizer
 
 class RoadGenerationEnv(gym.Env):
     """
-    Description:
-        The agent aims at generating tests for a lane-keeping system in a simulated environment.
-        Each test is a sequence of points in a 200x200 map. The agent starts with an empty sequence of points.
-        For any given state, the agent may choose to add/update or delete a point from the sequence.
-    Source:
-        The environment was created to compete in the SBST2022 Cyber-physical systems (CPS) testing competition.
-    Observation:
-        Type: Box(2)
-        Num    Observation          Min         Max
-        0      Max %OOB             0.0         100.0
-
-    Actions:
-        Type: Discrete(2) ?
-        Num    Action
-        0      Add/Update points
-        1      Remove point
-    Reward:
-         Reward of 0 is awarded if the agent reached the flag (position = 0.5)
-         on top of the mountain.
-         Reward of -1 is awarded if the position of the agent is less than 0.5.
-    Starting State:
-         The agent starts with an empty sequence of points.
-    Episode Termination:
-         The agent constructed a test on which the lane-keeping system fails
-         Episode length is greater than TODO steps
-    """
+        Description:
+            The agent aims at generating tests for a lane-keeping system in a simulated environment.
+            Each test is a sequence of points in a 200x200 map. The agent starts with an empty sequence of points.
+            For any given state, the agent may choose to add/update or delete a point from the sequence.
+        Source:
+            The environment was created to compete in the SBST2022 Cyber-physical systems (CPS) testing competition.
+        Reward:
+             TODO define reward
+        Starting State:
+             The agent starts with an empty sequence of points.
+        Episode Termination:
+             The agent constructed a test on which the lane-keeping system fails
+             Episode length is greater than TODO steps
+        """
 
     ADD_UPDATE = 0
     REMOVE = 1
 
     metadata = {"render.modes": ["human", "rgb_array"], "video.frames_per_second": 30}
 
-    def __init__(self):
+    def __init__(self,  executor, max_steps=1000, grid_size=200, results_folder="results", max_number_of_points=5):
 
-        self.grid_size = 200
-        result_folder = "results"
+        self.step_counter = 0
 
-        self.beamng_executor = MockExecutor(result_folder, time_budget=60, map_size=200,
-                                            road_visualizer=RoadTestVisualizer(map_size=200))
+        self.max_steps = max_steps
+        self.grid_size = grid_size
+        self.max_number_of_points = max_number_of_points
+        self.executor = executor
 
-        self.min_coordinate = 0.1
-        self.max_coordinate = 0.9  # valid coordinates are (x, y) with x, y \in [min_coordinate, max_coordinate]
-        self.number_of_points = 5
+        self.min_coordinate = 0.0
+        self.max_coordinate = 1.0  # valid coordinates are (x, y) with x, y \in [min_coordinate, max_coordinate]
+
         self.max_speed = float('inf')
-
         self.failure_oob_threshold = 0.95
-
         self.min_oob_percentage = 0.0
         self.max_oob_percentage = 100.0
 
         # state is an empty sequence of points
-        self.state = np.empty(self.number_of_points, dtype=object)
-        for i in range(self.number_of_points):
+        self.state = np.empty(self.max_number_of_points, dtype=object)
+        for i in range(self.max_number_of_points):
             self.state[i] = (0, 0)  # (0,0) represents absence of information in the i-th cell
 
         self.low_coordinates = np.array([self.min_coordinate, self.min_coordinate], dtype=np.float32)
@@ -89,54 +76,28 @@ class RoadGenerationEnv(gym.Env):
 
         # action space as a box
         self.action_space = spaces.Box(
-            low=np.array([0.0, 0.0, self.min_coordinate, self.min_coordinate]),
-            high=np.array([1.0, float(self.number_of_points), self.max_coordinate, self.max_coordinate]),
-            dtype=np.float32
+            low=np.array([0.0, 0.0, self.min_coordinate + 0.1, self.min_coordinate + 0.1]),
+            high=np.array([1.0, float(self.max_number_of_points) - np.finfo(float).eps, self.max_coordinate - 0.1, self.max_coordinate - 0.1]),
+            dtype=np.float16
         )
 
         # action space as a MultiDiscrete set (action type, position, x, y) # TODO make discrete env variant
         # self.action_space = spaces.MultiDiscrete([2, self.number_of_points, 1600, 1600])
 
         # create box observation space
-        for i in range(self.number_of_points):
-            np.append(self.low_observation, 0.0)
-            np.append(self.high_observation, self.max_coordinate)
-        np.append(self.low_observation, self.min_oob_percentage)
-        np.append(self.high_observation, self.max_oob_percentage)
+        for i in range(self.max_number_of_points):
+            self.low_observation = np.append(self.low_observation, [0.0, 0.0])
+            self.high_observation = np.append(self.high_observation, [self.max_coordinate, self.max_coordinate])
+        self.low_observation = np.append(self.low_observation, self.min_oob_percentage)
+        self.high_observation = np.append(self.high_observation, self.max_oob_percentage)
 
-        self.observation_space = spaces.Box(self.low_observation, self.high_observation, dtype=np.float32)
+        self.observation_space = spaces.Box(self.low_observation, self.high_observation, dtype=np.float16)
 
     def step(self, action):
-        assert self.action_space.contains(
-            action
-        ), f"{action!r} ({type(action)}) invalid"
-
-        action_type = round(action[0])  # value in {0,1}
-        position = math.floor(action[1])  # value in {0,...,self.number_of_points}
-        x = action[2]
-        y = action[3]
-
-        if action_type == self.ADD_UPDATE:
-            logging.debug("Setting coordinates for point %d to (%.2f, %.2f)", position, x*self.grid_size, y*self.grid_size)
-            self.state[position] = (x*self.grid_size, y*self.grid_size)
-        elif action_type == self.REMOVE:
-            logging.debug("Removing coordinates for point %d", position)
-            self.state[position] = (0, 0)
-
-        reward, done = self.compute_step()
-
-        # return observation, reward, done, info
-        obs = [coordinate for tuple in self.state for coordinate in tuple]
-        obs.append(0.5)
-        return np.array(obs, dtype=np.float32), reward, done, {}
+        pass
 
     def reset(self, seed: Optional[int] = None):
-        #super().reset(seed=seed)
-        # state is an empty sequence of points
-        self.state = np.empty(self.number_of_points, dtype=object)
-        for i in range(self.number_of_points):
-            self.state[i] = (0, 0)  # (0,0) represents absence of information in the i-th cell
-        return self.state
+        pass
 
     def render(self, mode="human"):
         screen_width = 600
@@ -205,38 +166,9 @@ class RoadGenerationEnv(gym.Env):
             self.viewer.close()
             self.viewer = None
 
-    def add_or_update_coordinates(self, index):
-        old_coordinates = self.state[index]
-        new_coordinates = (  # generate two completely random coordinates
-            random.uniform(self.min_coordinate, self.max_coordinate),
-            random.uniform(self.min_coordinate, self.max_coordinate)
-        )
-        # might as well generate new coordinates based on the (possibly) existing ones
-        # if old_coordinates = (0, 0), generate new random coordinates
-        # else new_coordinates = old_coordinates +- random_amount
-        return new_coordinates
-
-    def compute_step(self):
-        done = False
-        reward = 0
-        road_points = self.get_road_points()
-        logging.debug("Evaluating step. Current number of road points: %d (%s)", len(road_points), str(road_points))
-
-        if len(road_points) < 3:  # cannot generate a good test (at most, a straight road with 2 points)
-            reward = -10
-        else:  # we should be able to generate a road with at least one turn
-            the_test = RoadTestFactory.create_road_test(road_points)
-            # check whether the road is a valid one
-            is_valid, validation_message = self.beamng_executor.validate_test(the_test)
-            if is_valid:
-                # we run the test in the simulator
-                test_outcome, description, execution_data = self.executor.execute_test(the_test)
-            reward = 10
-        return reward, done
-
     def get_road_points(self):
-        road_points = np.array([], dtype=object)
-        for i in range(self.number_of_points):
-            if self.state[i][0] != 0 and self.state[i][1] != 0:
-                np.insert(road_points, self.state[i])
-        return road_points
+        pass
+
+    def compute_reward(self, execution_data):
+        reward = pow(execution_data[0].max_oob_percentage/10, 2)
+        return reward
