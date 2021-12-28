@@ -10,8 +10,9 @@ from code_pipeline.executors import MockExecutor
 from code_pipeline.visualization import RoadTestVisualizer
 from road_generation_env import RoadGenerationEnv
 from road_generation_env_continuous import RoadGenerationContinuousEnv
+from road_generation_env_discrete import RoadGenerationDiscreteEnv
 
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.DEBUG)
 
 test_executor = MockExecutor(result_folder="results", time_budget=1e10, map_size=200,
                                      road_visualizer=RoadTestVisualizer(map_size=200))
@@ -20,7 +21,8 @@ test_executor = BeamngExecutor(generation_budget=10000, execution_budget=10000, 
                                result_folder="results", map_size=200, beamng_home="D:\\BeamNG",
                                beamng_user="D:\\BeamNG_user\\", road_visualizer=RoadTestVisualizer(map_size=200))
 
-env = RoadGenerationContinuousEnv(test_executor, max_number_of_points=20)
+#env = RoadGenerationContinuousEnv(test_executor, max_number_of_points=20)
+env = RoadGenerationDiscreteEnv(test_executor, max_number_of_points=20)
 
 # Instantiate the agent
 model = PPO('MlpPolicy', env, verbose=1)
