@@ -46,53 +46,6 @@ class RoadGenerationEnv(gym.Env):
         self.max_number_of_points = max_number_of_points
         self.executor = executor
 
-        self.min_coordinate = 0.0
-        self.max_coordinate = 1.0  # valid coordinates are (x, y) with x, y \in [min_coordinate, max_coordinate]
-
-        self.max_speed = float('inf')
-        self.failure_oob_threshold = 0.95
-        self.min_oob_percentage = 0.0
-        self.max_oob_percentage = 100.0
-
-        # state is an empty sequence of points
-        self.state = np.empty(self.max_number_of_points, dtype=object)
-        for i in range(self.max_number_of_points):
-            self.state[i] = (0, 0)  # (0,0) represents absence of information in the i-th cell
-
-        self.low_coordinates = np.array([self.min_coordinate, self.min_coordinate], dtype=np.float32)
-        self.high_coordinates = np.array([self.max_coordinate, self.max_coordinate], dtype=np.float32)
-        self.low_observation = np.array([], dtype=np.float32)
-        self.high_observation = np.array([], dtype=np.float32)
-
-        self.viewer = None
-
-        # self.action_space = spaces.Discrete(2) #  no bueno
-
-        # looks like you can't mix discrete and box in tuples
-        # self.action_space = spaces.Tuple(
-        #     spaces.MultiDiscrete([2, self.number_of_points]),  # 2 actions (add/update and delete), one index position
-        #     spaces.Box(self.low_observation, self.high_observation, dtype=np.float32) # new coordinates for the point
-        # )
-
-        # action space as a box
-        self.action_space = spaces.Box(
-            low=np.array([0.0, 0.0, self.min_coordinate + 0.1, self.min_coordinate + 0.1]),
-            high=np.array([1.0, float(self.max_number_of_points) - np.finfo(float).eps, self.max_coordinate - 0.1, self.max_coordinate - 0.1]),
-            dtype=np.float16
-        )
-
-        # action space as a MultiDiscrete set (action type, position, x, y) # TODO make discrete env variant
-        # self.action_space = spaces.MultiDiscrete([2, self.number_of_points, 1600, 1600])
-
-        # create box observation space
-        for i in range(self.max_number_of_points):
-            self.low_observation = np.append(self.low_observation, [0.0, 0.0])
-            self.high_observation = np.append(self.high_observation, [self.max_coordinate, self.max_coordinate])
-        self.low_observation = np.append(self.low_observation, self.min_oob_percentage)
-        self.high_observation = np.append(self.high_observation, self.max_oob_percentage)
-
-        self.observation_space = spaces.Box(self.low_observation, self.high_observation, dtype=np.float16)
-
     def step(self, action):
         pass
 
@@ -167,8 +120,62 @@ class RoadGenerationEnv(gym.Env):
             self.viewer = None
 
     def get_road_points(self):
+        """
+        Converts the internal representation of road points (in self.state) into a list of points that can be processed
+        by the test executor.
+        """
         pass
+
+    def compute_step(self):
+        done = False
+        reward = 0
+        execution_data = []
+        max_oob_percentage = 0
+        road_points = self.get_road_points()
+        logging.debug("Evaluating step. Current number of road points: %d (%s)", len(road_points), str(road_points))
+
+        if len(road_points) < 3:  # cannot generate a good test (at most, a straight road with 2 points)
+            logging.debug("Test with less than 3 points. Negative reward.")
+            reward = -10
+        else:  # we should be able to generate a road with at least one turn
+            the_test = RoadTestFactory.create_road_test(road_points)
+            # check whether the road is a valid one
+            is_valid, validation_message = self.executor.validate_test(the_test)
+            if is_valid:
+                logging.debug("Test seems valid")
+                # we run the test in the simulator
+                test_outcome, description, execution_data = self.executor.execute_test(the_test)
+                logging.debug(f"Simulation results: {test_outcome}, {description}, {execution_data}")
+                if test_outcome == "ERROR":
+                    # Could not simulate the test case. Probably the test is malformed test and evaded preliminary validation.
+                    logging.debug("Test seemed valid, but test outcome was ERROR. Negative reward.")
+                    reward = -10  # give same reward as invalid test case
+                elif test_outcome == "PASS":
+                    # Test is valid, and passed. Compute reward based on execution data
+                    reward = self.compute_reward(execution_data)
+                    logging.debug(f"Test is valid and passed. Reward was {reward}, with {max_oob_percentage} OOB.")
+                    max_oob_percentage = self.get_max_oob_percentage(execution_data)
+                elif test_outcome == "FAIL":
+                    reward = 100
+                    max_oob_percentage = self.get_max_oob_percentage(execution_data)
+                    logging.debug(f"Test is valid and failed. Reward was {reward}, with {max_oob_percentage} OOB.")
+                    # todo save current test
+            else:
+                logging.debug(f"Test is invalid: {validation_message}")
+        return reward, max_oob_percentage
 
     def compute_reward(self, execution_data):
         reward = pow(execution_data[0].max_oob_percentage/10, 2)
         return reward
+
+    @staticmethod
+    def get_max_oob_percentage(execution_data):
+        """
+        execution_data is a list of SimulationDataRecord (which is a named tuple).
+        We iterate over each record, and get the max oob percentage.
+        """
+        max_oob_percentage = 0
+        for record in execution_data:
+            if record.max_oob_percentage > max_oob_percentage:
+                max_oob_percentage = record.max_oob_percentage
+        return max_oob_percentage
