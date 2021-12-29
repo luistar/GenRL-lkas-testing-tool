@@ -41,6 +41,9 @@ class RoadGenerationContinuousEnv(RoadGenerationEnv):
             3       New y coord             self.min_coord      self.max_coord
     """
 
+    ADD_UPDATE = 0
+    REMOVE = 1
+
     def __init__(self, executor, max_steps=1000, grid_size=200, results_folder="results", max_number_of_points=5,
                  max_reward=100, invalid_test_reward=-10):
 
@@ -107,10 +110,15 @@ class RoadGenerationContinuousEnv(RoadGenerationEnv):
             logging.debug("Skipping add of (%.2f, %.2f) in position %d. Coordinates already exist", x, y, position)
             reward = -10
             max_oob = 0.0
-        elif action_type == self.REMOVE:
+        elif action_type == self.REMOVE and self.check_some_coordinates_exist_at_position(position):
             logging.debug("Removing coordinates for point %d", position)
             self.state[position] = (0, 0)
             reward, max_oob = self.compute_step()
+        elif action_type == self.REMOVE and not self.check_some_coordinates_exist_at_position(position):
+            # disincentive deleting points where already there is no point
+            logging.debug(f"Skipping delete at position {position}. No point there.")
+            reward = self.invalid_test_reward
+            max_oob = 0.0
 
         done = self.step_counter == self.max_steps
 

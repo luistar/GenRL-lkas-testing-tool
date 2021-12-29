@@ -33,12 +33,9 @@ class RoadGenerationEnv(gym.Env):
              Episode length is greater than self.max_steps
         """
 
-    ADD_UPDATE = 0
-    REMOVE = 1
-
     metadata = {"render.modes": ["human", "rgb_array"], "video.frames_per_second": 30}
 
-    def __init__(self,  executor, max_steps=1000, grid_size=200, results_folder="results", max_number_of_points=5,
+    def __init__(self, executor, max_steps=1000, grid_size=200, results_folder="results", max_number_of_points=5,
                  max_reward=100, invalid_test_reward=-10):
 
         self.step_counter = 0
@@ -150,16 +147,16 @@ class RoadGenerationEnv(gym.Env):
                 logging.debug("Test seems valid")
                 # we run the test in the simulator
                 test_outcome, description, execution_data = self.executor.execute_test(the_test)
-                logging.debug(f"Simulation results: {test_outcome}, {description}, {execution_data}")
+                logging.debug(f"Simulation results: {test_outcome}, {description}")
                 if test_outcome == "ERROR":
                     # Could not simulate the test case. Probably the test is malformed test and evaded preliminary validation.
                     logging.debug("Test seemed valid, but test outcome was ERROR. Negative reward.")
                     reward = self.invalid_test_reward  # give same reward as invalid test case
                 elif test_outcome == "PASS":
                     # Test is valid, and passed. Compute reward based on execution data
-                    logging.debug(f"Test is valid and passed. Reward was {reward}, with {max_oob_percentage} OOB.")
                     max_oob_percentage = self.get_max_oob_percentage(execution_data)
-                    reward = self.compute_reward(execution_data)
+                    reward = self.compute_reward(max_oob_percentage)
+                    logging.debug(f"Test is valid and passed. Reward was {reward}, with {max_oob_percentage} OOB.")
                 elif test_outcome == "FAIL":
                     max_oob_percentage = self.get_max_oob_percentage(execution_data)
                     reward = self.max_reward
@@ -170,18 +167,23 @@ class RoadGenerationEnv(gym.Env):
                 logging.debug(f"Test is invalid: {validation_message}")
         return reward, max_oob_percentage
 
-    def compute_reward(self, execution_data):
-        reward = pow(execution_data[0].max_oob_percentage/10, 2)
+    def compute_reward(self, max_oob_percentage):
+        reward = pow(max_oob_percentage * 10, 2) / 10
         return reward
 
-    @staticmethod
-    def get_max_oob_percentage(execution_data):
+    def get_max_oob_percentage(self, execution_data):
         """
         execution_data is a list of SimulationDataRecord (which is a named tuple).
         We iterate over each record, and get the max oob percentage.
         """
         max_oob_percentage = 0
         for record in execution_data:
-            if record.max_oob_percentage > max_oob_percentage:
-                max_oob_percentage = record.max_oob_percentage
+            # logging.info(f"Processing record with oob: {record.oob_percentage}")
+            if record.oob_percentage > max_oob_percentage:
+                # logging.debug(f"New oob max: {record.oob_percentage}")
+                max_oob_percentage = record.oob_percentage
+        # logging.debug(f"Returning oob max: {max_oob_percentage}")
         return max_oob_percentage
+
+    def check_some_coordinates_exist_at_position(self, position):
+        return self.state[position][0] != 0 or self.state[position][1] != 0
