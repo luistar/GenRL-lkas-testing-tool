@@ -41,9 +41,11 @@ class RoadGenerationDiscreteEnv(RoadGenerationEnv):
             3       New y coord             grid_size * discretization_precision - 2 * safety_buffer
     """
 
-    def __init__(self, executor, max_steps=1000, grid_size=200, results_folder="results", max_number_of_points=5):
+    def __init__(self, executor, max_steps=1000, grid_size=200, results_folder="results", max_number_of_points=5,
+                 max_reward=100, invalid_test_reward=-10):
 
-        super().__init__(executor, max_steps, grid_size, results_folder, max_number_of_points)
+        super().__init__(executor, max_steps, grid_size, results_folder, max_number_of_points, max_reward,
+                         invalid_test_reward)
 
         self.min_coordinate = 0.0
         self.max_coordinate = 1.0

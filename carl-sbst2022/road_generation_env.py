@@ -24,12 +24,13 @@ class RoadGenerationEnv(gym.Env):
         Source:
             The environment was created to compete in the SBST2022 Cyber-physical systems (CPS) testing competition.
         Reward:
-             TODO define reward
+             Negative rewards for actions that generate invalid tests
+             Positive rewards for actions that make the vehicle go oob
+             Max reward for actions that make a test fail
         Starting State:
              The agent starts with an empty sequence of points.
         Episode Termination:
-             The agent constructed a test on which the lane-keeping system fails
-             Episode length is greater than TODO steps
+             Episode length is greater than self.max_steps
         """
 
     ADD_UPDATE = 0
@@ -37,7 +38,8 @@ class RoadGenerationEnv(gym.Env):
 
     metadata = {"render.modes": ["human", "rgb_array"], "video.frames_per_second": 30}
 
-    def __init__(self,  executor, max_steps=1000, grid_size=200, results_folder="results", max_number_of_points=5):
+    def __init__(self,  executor, max_steps=1000, grid_size=200, results_folder="results", max_number_of_points=5,
+                 max_reward=100, invalid_test_reward=-10):
 
         self.step_counter = 0
 
@@ -45,6 +47,9 @@ class RoadGenerationEnv(gym.Env):
         self.grid_size = grid_size
         self.max_number_of_points = max_number_of_points
         self.executor = executor
+        self.max_reward = max_reward
+        self.invalid_test_reward = invalid_test_reward
+        self.failing_tests = []  # empty list of failing tests, to check for similarity with previously generated tests
 
     def step(self, action):
         pass
@@ -136,7 +141,7 @@ class RoadGenerationEnv(gym.Env):
 
         if len(road_points) < 3:  # cannot generate a good test (at most, a straight road with 2 points)
             logging.debug("Test with less than 3 points. Negative reward.")
-            reward = -10
+            reward = self.invalid_test_reward
         else:  # we should be able to generate a road with at least one turn
             the_test = RoadTestFactory.create_road_test(road_points)
             # check whether the road is a valid one
@@ -149,17 +154,18 @@ class RoadGenerationEnv(gym.Env):
                 if test_outcome == "ERROR":
                     # Could not simulate the test case. Probably the test is malformed test and evaded preliminary validation.
                     logging.debug("Test seemed valid, but test outcome was ERROR. Negative reward.")
-                    reward = -10  # give same reward as invalid test case
+                    reward = self.invalid_test_reward  # give same reward as invalid test case
                 elif test_outcome == "PASS":
                     # Test is valid, and passed. Compute reward based on execution data
-                    reward = self.compute_reward(execution_data)
                     logging.debug(f"Test is valid and passed. Reward was {reward}, with {max_oob_percentage} OOB.")
                     max_oob_percentage = self.get_max_oob_percentage(execution_data)
+                    reward = self.compute_reward(execution_data)
                 elif test_outcome == "FAIL":
-                    reward = 100
                     max_oob_percentage = self.get_max_oob_percentage(execution_data)
+                    reward = self.max_reward
                     logging.debug(f"Test is valid and failed. Reward was {reward}, with {max_oob_percentage} OOB.")
-                    # todo save current test
+                    # save current test
+                    self.failing_tests.append(the_test)
             else:
                 logging.debug(f"Test is invalid: {validation_message}")
         return reward, max_oob_percentage
