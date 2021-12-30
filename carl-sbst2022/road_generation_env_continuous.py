@@ -64,10 +64,10 @@ class RoadGenerationContinuousEnv(RoadGenerationEnv):
         for i in range(self.max_number_of_points):
             self.state[i] = (0, 0)  # (0,0) represents absence of information in the i-th cell
 
-        self.low_coordinates = np.array([self.min_coordinate, self.min_coordinate], dtype=np.float32)
-        self.high_coordinates = np.array([self.max_coordinate, self.max_coordinate], dtype=np.float32)
-        self.low_observation = np.array([], dtype=np.float32)
-        self.high_observation = np.array([], dtype=np.float32)
+        self.low_coordinates = np.array([self.min_coordinate, self.min_coordinate], dtype=np.float16)
+        self.high_coordinates = np.array([self.max_coordinate, self.max_coordinate], dtype=np.float16)
+        self.low_observation = np.array([], dtype=np.float16)
+        self.high_observation = np.array([], dtype=np.float16)
 
         self.viewer = None
 
