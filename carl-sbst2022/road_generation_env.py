@@ -187,3 +187,9 @@ class RoadGenerationEnv(gym.Env):
 
     def check_some_coordinates_exist_at_position(self, position):
         return self.state[position][0] != 0 or self.state[position][1] != 0
+
+    def check_coordinates_already_exist(self, x, y):
+        for i in range(self.max_number_of_points):
+            if x == self.state[i][0] and y == self.state[i][1]:
+                return True
+        return False

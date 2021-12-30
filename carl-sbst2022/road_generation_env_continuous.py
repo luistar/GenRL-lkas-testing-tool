@@ -57,7 +57,7 @@ class RoadGenerationContinuousEnv(RoadGenerationEnv):
         self.failure_oob_threshold = 0.95
 
         self.min_oob_percentage = 0.0
-        self.max_oob_percentage = 100.0
+        self.max_oob_percentage = 1.0
 
         # state is an empty sequence of points
         self.state = np.empty(self.max_number_of_points, dtype=object)
@@ -138,72 +138,6 @@ class RoadGenerationContinuousEnv(RoadGenerationEnv):
         obs.append(0.0)  # zero oob initially
         return np.array(obs, dtype=np.float16)
 
-    def render(self, mode="human"):
-        screen_width = 600
-        screen_height = 400
-
-        world_width = self.max_position - self.min_position
-        scale = screen_width / world_width
-        carwidth = 40
-        carheight = 20
-
-        if self.viewer is None:
-            from gym.envs.classic_control import rendering
-
-            self.viewer = rendering.Viewer(screen_width, screen_height)
-            xs = np.linspace(self.min_position, self.max_position, 100)
-            ys = self._height(xs)
-            xys = list(zip((xs - self.min_position) * scale, ys * scale))
-
-            self.track = rendering.make_polyline(xys)
-            self.track.set_linewidth(4)
-            self.viewer.add_geom(self.track)
-
-            clearance = 10
-
-            l, r, t, b = -carwidth / 2, carwidth / 2, carheight, 0
-            car = rendering.FilledPolygon([(l, b), (l, t), (r, t), (r, b)])
-            car.add_attr(rendering.Transform(translation=(0, clearance)))
-            self.cartrans = rendering.Transform()
-            car.add_attr(self.cartrans)
-            self.viewer.add_geom(car)
-            frontwheel = rendering.make_circle(carheight / 2.5)
-            frontwheel.set_color(0.5, 0.5, 0.5)
-            frontwheel.add_attr(
-                rendering.Transform(translation=(carwidth / 4, clearance))
-            )
-            frontwheel.add_attr(self.cartrans)
-            self.viewer.add_geom(frontwheel)
-            backwheel = rendering.make_circle(carheight / 2.5)
-            backwheel.add_attr(
-                rendering.Transform(translation=(-carwidth / 4, clearance))
-            )
-            backwheel.add_attr(self.cartrans)
-            backwheel.set_color(0.5, 0.5, 0.5)
-            self.viewer.add_geom(backwheel)
-            flagx = (self.goal_position - self.min_position) * scale
-            flagy1 = self._height(self.goal_position) * scale
-            flagy2 = flagy1 + 50
-            flagpole = rendering.Line((flagx, flagy1), (flagx, flagy2))
-            self.viewer.add_geom(flagpole)
-            flag = rendering.FilledPolygon(
-                [(flagx, flagy2), (flagx, flagy2 - 10), (flagx + 25, flagy2 - 5)]
-            )
-            flag.set_color(0.8, 0.8, 0)
-            self.viewer.add_geom(flag)
-
-        pos = self.state[0]
-        self.cartrans.set_translation(
-            (pos - self.min_position) * scale, self._height(pos) * scale
-        )
-        self.cartrans.set_rotation(math.cos(3 * pos))
-
-        return self.viewer.render(return_rgb_array=mode == "rgb_array")
-
-    def close(self):
-        if self.viewer:
-            self.viewer.close()
-            self.viewer = None
 
     def get_road_points(self):
         road_points = []  # np.array([], dtype=object)
@@ -216,13 +150,3 @@ class RoadGenerationContinuousEnv(RoadGenerationEnv):
                     )
                 )
         return road_points
-
-    def compute_reward(self, execution_data):
-        reward = pow(execution_data[0].max_oob_percentage / 10, 2)
-        return reward
-
-    def check_coordinates_already_exist(self, x, y):
-        for i in range(self.max_number_of_points):
-            if x == self.state[i][0] and y == self.state[i][1]:
-                return True
-        return False
