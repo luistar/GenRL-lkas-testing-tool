@@ -15,8 +15,8 @@ from road_generation_env_transform import RoadGenerationTransformationEnv
 
 logging.basicConfig(level=logging.DEBUG)
 
-test_executor = MockExecutor(result_folder="results", time_budget=1e10, map_size=200,
-                                     road_visualizer=RoadTestVisualizer(map_size=200))
+# test_executor = MockExecutor(result_folder="results", time_budget=1e10, map_size=200,
+#                                      road_visualizer=RoadTestVisualizer(map_size=200))
 
 test_executor = BeamngExecutor(generation_budget=10000, execution_budget=10000, time_budget=10000,
                                result_folder="results", map_size=200, beamng_home="D:\\BeamNG",
