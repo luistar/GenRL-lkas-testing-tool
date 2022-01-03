@@ -1,0 +1,13 @@
+Instructions to simulate a test run on a manually-defined road
+
+0) Open CMD
+1) Change dir to the project's root
+2) Activate the virtual environment as follows
+.\.venv\Scripts\activate.bat
+3) (Optional) Change the sample_test_generators\custom_test_generator.py file to change the generated road
+4) Run the following command to start the custom test generator
+python competition.py --time-budget 100 --executor beamng --map-size 200 --module-name sample_test_generators.custom_test_generator --class-name CustomTestGenerator --beamng-home="D:\BeamNG" --beamng-user="D:\BeamNG_user"  --visualize-tests
+
+
+Instructions to start the RL-based test generation
+Run the carl-sbst2022\run-carl.py script (using pycharm is recommended for the SciView aggregating the road plots)

@@ -1,0 +1,52 @@
+<html>
+    <head>
+        <title>SBST ROAD CREATOR</title>
+        <script
+        src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+        crossorigin="anonymous"></script></head>
+    <body>
+        <h1>SBST ROAD CREATION UTILITY</h1>
+        <canvas width=200 height=200 style="border: 1px solid black; cursor: crosshair;" id="canvas"></canvas>
+        <br>
+        <h2>Python code</h2>
+        <textarea name="code" id="code" cols="80" rows="8"></textarea>
+        <div><button id="testdiv">RESET</button></div>
+        
+        <script>
+            $("#canvas").click(function(e){
+                getPosition(e); 
+           });
+
+           $("#testdiv").click(function(e){
+                var myTextArea = $('#code');
+                myTextArea.val("");
+                const context = document.getElementById("canvas").getContext("2d");
+                context.clearRect(0, 0, canvas.width, canvas.height);
+           });
+           
+           var pointSize = 3;
+           
+           function getPosition(event){
+                var rect = canvas.getBoundingClientRect();
+                var x = event.clientX - rect.left;
+                var y = event.clientY - rect.top;
+                   
+                drawCoordinates(x,y);
+           }
+           
+           function drawCoordinates(x,y){	
+                 var ctx = document.getElementById("canvas").getContext("2d");
+           
+           
+                 ctx.fillStyle = "#ff2626"; // Red color
+           
+               ctx.beginPath();
+               ctx.arc(x, y, pointSize, 0, Math.PI * 2, true);
+               ctx.fill();
+               var myTextArea = $('#code');
+               myTextArea.val(myTextArea.val() + '\n'+'road_points.append(('+x+', '+Math.abs(y-200)+'))');
+           }
+        </script>
+    </body>
+</html>
