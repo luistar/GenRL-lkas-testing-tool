@@ -112,7 +112,9 @@ class RoadGenerationTransformationEnv(RoadGenerationEnv):
             reward = self.invalid_test_reward
             max_oob = 0.0
 
-        done = self.step_counter == self.max_steps
+        # episode ends after max number of steps per episode is reached or a failing test is produced
+        if self.step_counter == self.max_steps or reward == self.max_reward:
+            done = True
 
         # return observation, reward, done, info
         obs = self.get_state_observation()
