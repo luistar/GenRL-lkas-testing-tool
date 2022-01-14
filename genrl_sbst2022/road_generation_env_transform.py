@@ -3,6 +3,7 @@ import os
 import random
 import logging
 from typing import Optional
+from collections import deque
 
 import numpy as np
 
@@ -14,7 +15,7 @@ from code_pipeline.executors import MockExecutor
 from code_pipeline.tests_generation import RoadTestFactory
 from code_pipeline.visualization import RoadTestVisualizer
 
-from road_generation_env import RoadGenerationEnv
+from genrl_sbst2022.road_generation_env import RoadGenerationEnv
 
 
 class RoadGenerationTransformationEnv(RoadGenerationEnv):
@@ -53,6 +54,7 @@ class RoadGenerationTransformationEnv(RoadGenerationEnv):
                          invalid_test_reward)
 
         self.min_coordinate = 0.0
+        self.mid_coordinate = 0.5
         self.max_coordinate = 1.0
         self.safety_buffer = 0.1
 
@@ -105,12 +107,15 @@ class RoadGenerationTransformationEnv(RoadGenerationEnv):
 
         self.state[position], is_valid = self.process_action(action_type, position, amount)
 
+        done = False
+
         if is_valid:
             logging.info("Action was valid, computing step.")
             reward, max_oob = self.compute_step()
         else:
             reward = self.invalid_test_reward
             max_oob = 0.0
+            done = True  # episode ends if an invalid road is produces
 
         # episode ends after max number of steps per episode is reached or a failing test is produced
         if self.step_counter == self.max_steps or reward == self.max_reward:
@@ -127,13 +132,7 @@ class RoadGenerationTransformationEnv(RoadGenerationEnv):
 
     def reset(self, seed: Optional[int] = None):
         # super().reset(seed=seed)
-        # state is an empty sequence of points
-        self.state = np.empty(self.max_number_of_points, dtype=object)
-        for i in range(self.max_number_of_points):
-            self.state[i] = (
-                random.uniform(self.min_coordinate + self.safety_buffer, self.max_coordinate - self.safety_buffer),
-                random.uniform(self.min_coordinate + self.safety_buffer, self.max_coordinate - self.safety_buffer)
-            )
+        self.reset_state()
         # return observation
         obs = self.get_state_observation()
         obs.append(0.0)  # zero oob initially
@@ -183,3 +182,37 @@ class RoadGenerationTransformationEnv(RoadGenerationEnv):
         else:
             logging.debug(f"Invalid action, tried changing from ({old_point[0]}, {old_point[1]}) to ({x}, {y})")
             return old_point, False
+
+    def reset_state(self):
+        logging.info("Resetting state")
+        if self.max_number_of_points != 4:
+            self.state = np.empty(self.max_number_of_points, dtype=object)
+            for i in range(self.max_number_of_points):
+                self.state[i] = (
+                    random.uniform(self.min_coordinate + self.safety_buffer, self.max_coordinate - self.safety_buffer),
+                    random.uniform(self.min_coordinate + self.safety_buffer, self.max_coordinate - self.safety_buffer)
+                )
+        else:
+            # if we have exactly four points, generate one of them in each quadrant (to reduce initially invalid roads)
+            # TODO: we should generalize this (both to work with any number of points)
+            point_q1 = (
+                random.uniform(self.mid_coordinate + self.safety_buffer, self.max_coordinate - self.safety_buffer),
+                random.uniform(self.mid_coordinate + self.safety_buffer, self.max_coordinate - self.safety_buffer)
+            )
+            point_q2 = (
+                random.uniform(self.min_coordinate + self.safety_buffer, self.mid_coordinate - self.safety_buffer),
+                random.uniform(self.mid_coordinate + self.safety_buffer, self.max_coordinate - self.safety_buffer)
+            )
+            point_q3 = (
+                random.uniform(self.min_coordinate + self.safety_buffer, self.mid_coordinate - self.safety_buffer),
+                random.uniform(self.min_coordinate + self.safety_buffer, self.mid_coordinate - self.safety_buffer)
+            )
+            point_q4 = (
+                random.uniform(self.mid_coordinate + self.safety_buffer, self.max_coordinate - self.safety_buffer),
+                random.uniform(self.min_coordinate + self.safety_buffer, self.mid_coordinate - self.safety_buffer)
+            )
+            d = deque([point_q1, point_q2, point_q3, point_q4])
+            if random.choice([True, False]):
+                d.reverse()  # make the points go "clockwise"
+            d.rotate(random.randint(0, 3))  # optionally shift the starting point
+            self.state = np.array(d, dtype=object)  # convert deque to np array

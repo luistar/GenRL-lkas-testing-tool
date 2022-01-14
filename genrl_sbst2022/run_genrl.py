@@ -27,8 +27,8 @@ test_executor = BeamngExecutor(generation_budget=10000, execution_budget=10000, 
 env = RoadGenerationTransformationEnv(test_executor, max_number_of_points=4)
 
 # Instantiate the agent
-model = PPO('MlpPolicy', env, verbose=1)
-model.learn(total_timesteps=int(1e4))
+model = PPO('MlpPolicy', env, verbose=1, batch_size=2)
+model.learn(total_timesteps=int(2),  log_interval=1)
 
 # check_env(env)
 

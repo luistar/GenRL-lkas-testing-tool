@@ -2,14 +2,9 @@ import logging as log
 
 from stable_baselines3 import PPO
 
-from road_generation_env_continuous import RoadGenerationContinuousEnv
-from road_generation_env_discrete import RoadGenerationDiscreteEnv
-from road_generation_env_transform import RoadGenerationTransformationEnv
+from genrl_sbst2022.road_generation_env_transform import RoadGenerationTransformationEnv
 
-from code_pipeline.tests_generation import RoadTestFactory
-
-
-class CarlTestGenerator:
+class GenrlTestGenerator:
     """
         Generates tests using a RL-based approach
     """
@@ -30,11 +25,13 @@ class CarlTestGenerator:
         model = PPO('MlpPolicy', env, verbose=1)
 
         # Start training the agent
+        log.info("Starting training")
         model.learn(total_timesteps=int(1e2))
 
         # If training is done and we still have time left, we generate new tests using the trained policy until the
         # given time budget is up.
-        while True:
+        log.info("Generating tests with the trained agent")
+        while not self.executor.time_budget.is_over():
             obs = env.reset()
             while not done:
                 action = model.predict(observation=obs)
