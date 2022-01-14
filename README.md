@@ -12,6 +12,11 @@ pip3 install torch==1.10.1+cu113 torchvision==0.11.2+cu113 torchaudio===0.10.1+c
 pip install -r additional-requirements.txt 
 ```
 
+To start the test generator using the tool competition pipeline, run `competition.py` with the following command line parameters:
+```
+--module-name genrl_sbst2022.genrl_test_generator --class-name GenrlTestGenerator 
+```
+
 # Cyber-Physical Systems Testing Competition #
 
 The [SBST Workshop](https://sbst22.github.io/) offers a challenge for software testers who want to work with self-driving cars in the context of the usual [tool competition](https://sbst22.github.io/tools/).
