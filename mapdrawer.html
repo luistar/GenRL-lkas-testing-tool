@@ -7,7 +7,7 @@
         crossorigin="anonymous"></script></head>
     <body>
         <h1>SBST ROAD CREATION UTILITY</h1>
-        <canvas width=200 height=200 style="border: 1px solid black; cursor: crosshair;" id="canvas"></canvas>
+        <canvas width=500 height=500 style="border: 1px solid black; cursor: crosshair;" id="canvas"></canvas>
         <br>
         <h2>Python code</h2>
         <textarea name="code" id="code" cols="80" rows="8"></textarea>
@@ -45,7 +45,7 @@
                ctx.arc(x, y, pointSize, 0, Math.PI * 2, true);
                ctx.fill();
                var myTextArea = $('#code');
-               myTextArea.val(myTextArea.val() + '\n'+'road_points.append(('+x+', '+Math.abs(y-200)+'))');
+               myTextArea.val(myTextArea.val() + '\n'+'road_points.append(('+x+', '+Math.abs(y-500)+'))');
            }
         </script>
     </body>
