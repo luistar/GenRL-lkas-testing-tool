@@ -96,7 +96,6 @@ class AngleLengthGenerator:
 
     def prova(self):
         road_points = []
-
         road_points.append((52, 23.637500047683716))
         road_points.append((53, 54.637500047683716))
         road_points.append((53, 109.63750004768372))
@@ -110,8 +109,8 @@ class AngleLengthGenerator:
         road_points.append((176, 463.6375000476837))
         road_points.append((200, 461.6375000476837))
         road_points.append((253, 443.6375000476837))
-        road_points.append((282, 420.6375000476837))
-        road_points.append((278, 389.6375000476837))
+        #road_points.append((282, 420.6375000476837))
+        #road_points.append((278, 389.6375000476837))
         road_points.append((245, 355.6375000476837))
         road_points.append((212, 340.6375000476837))
         road_points.append((194, 327.6375000476837))
@@ -123,6 +122,39 @@ class AngleLengthGenerator:
         road_points.append((273, 187.63750004768372))
         road_points.append((244, 175.63750004768372))
         road_points.append((223, 172.63750004768372))
+        return road_points
+
+    def prova2(self):
+        road_points = []
+
+        road_points.append((194, 30.4375))
+        road_points.append((206, 51.4375))
+        road_points.append((212, 73.4375))
+        road_points.append((219, 110.4375))
+        road_points.append((210, 135.4375))
+        road_points.append((194, 161.4375))
+        road_points.append((179, 184.4375))
+        road_points.append((151, 215.4375))
+        road_points.append((140, 258.4375))
+        road_points.append((164, 283.4375))
+        road_points.append((183, 297.4375))
+        road_points.append((200, 303.4375))
+        road_points.append((216, 326.4375))
+        road_points.append((227, 343.4375))
+        road_points.append((228, 362.4375))
+        road_points.append((212, 382.4375))
+        road_points.append((195, 388.4375))
+        road_points.append((168, 393.4375))
+        road_points.append((140, 402.4375))
+        road_points.append((136, 419.4375))
+        road_points.append((144, 438.4375))
+        road_points.append((158, 456.4375))
+        road_points.append((185, 471.4375))
+        road_points.append((211, 482.4375))
+        # road_points.append((154, 431.4375))
+        # road_points.append((161, 450.4375))
+        # road_points.append((185, 463.4375))
+        # road_points.append((215, 468.4375))
         return road_points
 
     def check_boundaries(self, x, y):
