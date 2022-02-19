@@ -1,0 +1,4 @@
+Angolo: 45 Lunghezza: 100 'The road is too sharp'
+Angolo: 45 Lunghezza: 110 'The road is too sharp'
+Angolo: 55 Lunghezza: 100 'The road is too sharp'
+Angolo: 55 Lunghezza: 110 'The road is too sharp'
