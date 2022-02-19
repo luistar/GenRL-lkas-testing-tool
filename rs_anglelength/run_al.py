@@ -126,7 +126,8 @@ class AngleLengthGenerator:
 
     def get_max_oob_percentage(self, execution_data):
         max_oob_percentage = 0
-        for record in execution_data[1]:
+        for record in execution_data:
+            print(record)
             logging.info(f"Processing record with oob: {record.oob_percentage}")
             if record.oob_percentage > max_oob_percentage:
                 logging.debug(f"New oob max: {record.oob_percentage}")
