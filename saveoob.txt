@@ -1,0 +1,39 @@
+Angolo: 45 Lunghezza: 50 'The road is self-intersecting'
+Angolo: 45 Lunghezza: 60 'The road is too sharp'
+Angolo: 45 Lunghezza: 70 'The road is too sharp'
+Angolo: 45 Lunghezza: 80 'The road is too sharp'
+Angolo: 45 Lunghezza: 90 'The road is too sharp'
+Angolo: 45 Lunghezza: 100 'The road is too sharp'
+Angolo: 45 Lunghezza: 110 'The road is too sharp'
+Angolo: 45 Lunghezza: 120 'The road is too sharp'
+Angolo: 45 Lunghezza: 130 'The road is too sharp'
+Angolo: 45 Lunghezza: 140 'The road is too sharp'
+Angolo: 45 Lunghezza: 150 'The road is too sharp'
+Angolo: 45 Lunghezza: 160 'The road is too sharp'
+Angolo: 45 Lunghezza: 170 'The road is too sharp'
+Angolo: 45 Lunghezza: 180 'The road is too sharp'
+Angolo: 45 Lunghezza: 190 Max oob: 0.9357269910483144
+Angolo: 55 Lunghezza: 50 'The road is too sharp'
+Angolo: 55 Lunghezza: 60 'The road is too sharp'
+Angolo: 55 Lunghezza: 70 'The road is too sharp'
+Angolo: 55 Lunghezza: 80 'The road is too sharp'
+Angolo: 55 Lunghezza: 90 'The road is too sharp'
+Angolo: 55 Lunghezza: 100 'The road is too sharp'
+Angolo: 55 Lunghezza: 110 'The road is too sharp'
+Angolo: 55 Lunghezza: 120 'The road is too sharp'
+Angolo: 55 Lunghezza: 130 Max oob: 0.8042611494792331
+Angolo: 55 Lunghezza: 140 Max oob: 0.7897845922419596
+Angolo: 55 Lunghezza: 150 Max oob: 0.7938122532943609
+Angolo: 55 Lunghezza: 160 Max oob: 0.7908480774347292
+Angolo: 55 Lunghezza: 170 Max oob: 0.6687248361175514
+Angolo: 55 Lunghezza: 180 Max oob: 0.4225163094655182
+Angolo: 55 Lunghezza: 190 Max oob: 0.6996475102726283
+Angolo: 65 Lunghezza: 50 'The road is too sharp'
+Angolo: 65 Lunghezza: 60 'The road is too sharp'
+Angolo: 65 Lunghezza: 70 'The road is too sharp'
+Angolo: 65 Lunghezza: 80 'The road is too sharp'
+Angolo: 65 Lunghezza: 90 Max oob: 0.3784491374031531
+Angolo: 65 Lunghezza: 100 Max oob: 0.4575826811335064
+Angolo: 65 Lunghezza: 110 Max oob: 0.32952807053408417
+Angolo: 65 Lunghezza: 120 Max oob: 0.33474265719396723
+Angolo: 65 Lunghezza: 130 Max oob: 0.6395515051929199

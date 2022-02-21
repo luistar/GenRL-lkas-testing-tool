@@ -127,7 +127,6 @@ class AngleLengthGenerator:
     def get_max_oob_percentage(self, execution_data):
         max_oob_percentage = 0
         for record in execution_data:
-            print(record)
             logging.info(f"Processing record with oob: {record.oob_percentage}")
             if record.oob_percentage > max_oob_percentage:
                 logging.debug(f"New oob max: {record.oob_percentage}")
@@ -140,7 +139,7 @@ class AngleLengthGenerator:
             print("Errore nella costruzione dei punti")
         else:
             road_points = self.get_road_points(final)
-            self.draw_roadpoints(road_points)
+            # self.draw_roadpoints(road_points)
 
             the_test = RoadTestFactory.create_road_test(road_points)
             is_valid, validation_message = test_executor.validate_test(the_test)
@@ -164,7 +163,7 @@ class AngleLengthGenerator:
                                        result_folder="results", map_size=500, beamng_home="C:\\Users\\kikki\\BeamNG",
                                        beamng_user="C:\\Users\\kikki\\BeamNG_user",
                                        road_visualizer=RoadTestVisualizer(map_size=500))
-            (x, y) = (42, 42)
+            (x, y) = (250, 250)
             for a in range(45, 315, 10):
                 for l in range(50, 200, 10):
                     final = self.three_points(x, y, a, l)

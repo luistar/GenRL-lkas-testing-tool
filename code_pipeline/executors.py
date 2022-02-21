@@ -143,8 +143,8 @@ class AbstractTestExecutor(ABC):
         the_test.set_validity(is_valid, validation_msg)
 
         # Visualize the road if a road visualizer is defined. Also includes results for the validation
-        if self.road_visualizer:
-            self.road_visualizer.visualize_road_test(the_test)
+        # if self.road_visualizer:
+            # self.road_visualizer.visualize_road_test(the_test)
 
         if is_valid:
             # Update the statistics of the run
