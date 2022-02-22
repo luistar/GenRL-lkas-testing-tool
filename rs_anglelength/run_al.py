@@ -164,8 +164,8 @@ class AngleLengthGenerator:
                                        beamng_user="C:\\Users\\kikki\\BeamNG_user",
                                        road_visualizer=RoadTestVisualizer(map_size=500))
             (x, y) = (250, 250)
-            for a in range(45, 315, 10):
-                for l in range(50, 200, 10):
+            for a in range(45, 316, 10):
+                for l in range(50, 201, 10):
                     final = self.three_points(x, y, a, l)
                     flag, res = self.check_final_and_test(final, test_executor)
                     if flag:
