@@ -24,7 +24,7 @@ class BeamngExecutor(AbstractTestExecutor):
 
     def __init__(self, result_folder, map_size,
                  generation_budget=None, execution_budget=None, time_budget=None,
-                 oob_tolerance=0.95, max_speed_in_kmh=70,
+                 oob_tolerance=0.95, max_speed_in_kmh=110,
                  beamng_home=None, beamng_user=None, road_visualizer=None, debug=False):
         super(BeamngExecutor, self).__init__(result_folder, map_size,
                                              generation_budget=generation_budget, execution_budget=execution_budget,

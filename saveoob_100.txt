@@ -1,0 +1,448 @@
+Angolo: 45 Lunghezza: 50 'The road is self-intersecting'
+Angolo: 45 Lunghezza: 60 'The road is too sharp'
+Angolo: 45 Lunghezza: 70 'The road is too sharp'
+Angolo: 45 Lunghezza: 80 'The road is too sharp'
+Angolo: 45 Lunghezza: 90 'The road is too sharp'
+Angolo: 45 Lunghezza: 100 'The road is too sharp'
+Angolo: 45 Lunghezza: 110 'The road is too sharp'
+Angolo: 45 Lunghezza: 120 'The road is too sharp'
+Angolo: 45 Lunghezza: 130 'The road is too sharp'
+Angolo: 45 Lunghezza: 140 'The road is too sharp'
+Angolo: 45 Lunghezza: 150 'The road is too sharp'
+Angolo: 45 Lunghezza: 160 'The road is too sharp'
+Angolo: 45 Lunghezza: 170 'The road is too sharp'
+Angolo: 45 Lunghezza: 180 'The road is too sharp'
+Angolo: 45 Lunghezza: 190 Max oob: 0.9388140093991675
+Angolo: 45 Lunghezza: 200 Max oob: 0.9390349461551428
+Angolo: 55 Lunghezza: 50 'The road is too sharp'
+Angolo: 55 Lunghezza: 60 'The road is too sharp'
+Angolo: 55 Lunghezza: 70 'The road is too sharp'
+Angolo: 55 Lunghezza: 80 'The road is too sharp'
+Angolo: 55 Lunghezza: 90 'The road is too sharp'
+Angolo: 55 Lunghezza: 100 'The road is too sharp'
+Angolo: 55 Lunghezza: 110 'The road is too sharp'
+Angolo: 55 Lunghezza: 120 'The road is too sharp'
+Angolo: 55 Lunghezza: 130 Max oob: 0.809608017413497
+Angolo: 55 Lunghezza: 140 Max oob: 0.7922186716519581
+Angolo: 55 Lunghezza: 150 Max oob: 0.7997028680155429
+Angolo: 55 Lunghezza: 160 Max oob: 0.7884875754884648
+Angolo: 55 Lunghezza: 170 Max oob: 0.6725680224394897
+Angolo: 55 Lunghezza: 180 Max oob: 0.4199977686427079
+Angolo: 55 Lunghezza: 190 Max oob: 0.6987095075035719
+Angolo: 55 Lunghezza: 200 Max oob: 0.29875464744131963
+Angolo: 65 Lunghezza: 50 'The road is too sharp'
+Angolo: 65 Lunghezza: 60 'The road is too sharp'
+Angolo: 65 Lunghezza: 70 'The road is too sharp'
+Angolo: 65 Lunghezza: 80 'The road is too sharp'
+Angolo: 65 Lunghezza: 90 Max oob: 0.37078914942607655
+Angolo: 65 Lunghezza: 100 Max oob: 0.4556229866042133
+Angolo: 65 Lunghezza: 110 Max oob: 0.3423319344535233
+Angolo: 65 Lunghezza: 120 Max oob: 0.34492262319755485
+Angolo: 65 Lunghezza: 130 Max oob: 0.6403370311753545
+Angolo: 65 Lunghezza: 140 Max oob: 0.5703826656316674
+Angolo: 65 Lunghezza: 150 Max oob: 0.6280299876621795
+Angolo: 65 Lunghezza: 160 Max oob: 0.6984953613847134
+Angolo: 65 Lunghezza: 170 Max oob: 0.2769319363515208
+Angolo: 65 Lunghezza: 180 Max oob: 0.291819034618773
+Angolo: 65 Lunghezza: 190 Max oob: 0.2483915581589231
+Angolo: 65 Lunghezza: 200 Max oob: 0.35005486716607326
+Angolo: 75 Lunghezza: 50 'The road is too sharp'
+Angolo: 75 Lunghezza: 60 'The road is too sharp'
+Angolo: 75 Lunghezza: 70 Max oob: 0.495706581448602
+Angolo: 75 Lunghezza: 80 Max oob: 0.5751263393828276
+Angolo: 75 Lunghezza: 90 Max oob: 0.436068887261422
+Angolo: 75 Lunghezza: 100 Max oob: 0.32124110458001964
+Angolo: 75 Lunghezza: 110 Max oob: 0.4429977915697063
+Angolo: 75 Lunghezza: 120 Max oob: 0.22441583489171002
+Angolo: 75 Lunghezza: 130 Max oob: 0.18980774244944
+Angolo: 75 Lunghezza: 140 Max oob: 0.5062906367113066
+Angolo: 75 Lunghezza: 150 Max oob: 0.4129898458372182
+Angolo: 75 Lunghezza: 160 Max oob: 0.4506083021424442
+Angolo: 75 Lunghezza: 170 Max oob: 0.21043829633881195
+Angolo: 75 Lunghezza: 180 Max oob: 0.2324206641736407
+Angolo: 75 Lunghezza: 190 Max oob: 0.17267119410285847
+Angolo: 75 Lunghezza: 200 Max oob: 0.13988239836853
+Angolo: 85 Lunghezza: 50 Max oob: 0.6017755371753584
+Angolo: 85 Lunghezza: 60 Max oob: 0.661062585455922
+Angolo: 85 Lunghezza: 70 Max oob: 0.6959169726684744
+Angolo: 85 Lunghezza: 80 Max oob: 0.37355574741567144
+Angolo: 85 Lunghezza: 90 Max oob: 0.2088908198892372
+Angolo: 85 Lunghezza: 100 Max oob: 0.2214615870619273
+Angolo: 85 Lunghezza: 110 Max oob: 0.38286732919255995
+Angolo: 85 Lunghezza: 120 Max oob: 0.3259861820807092
+Angolo: 85 Lunghezza: 130 Max oob: 0.29826993639624555
+Angolo: 85 Lunghezza: 140 Max oob: 0.13182049277903896
+Angolo: 85 Lunghezza: 150 Max oob: 0.14606746981652774
+Angolo: 85 Lunghezza: 160 Max oob: 0.11137651057682219
+Angolo: 85 Lunghezza: 170 Max oob: 0.0981733836314117
+Angolo: 85 Lunghezza: 180 Max oob: 0.09632550516175531
+Angolo: 85 Lunghezza: 190 Max oob: 0.09718105717007208
+Angolo: 85 Lunghezza: 200 Max oob: 0.060125724779924616
+Angolo: 95 Lunghezza: 50 Max oob: 0.4600792937084235
+Angolo: 95 Lunghezza: 60 Max oob: 0.23734943016119692
+Angolo: 95 Lunghezza: 70 Max oob: 0.32907523747515
+Angolo: 95 Lunghezza: 80 Max oob: 0.45530898034460154
+Angolo: 95 Lunghezza: 90 Max oob: 0.30533259313454264
+Angolo: 95 Lunghezza: 100 Max oob: 0.14693399985177857
+Angolo: 95 Lunghezza: 110 Max oob: 0.11505420952211354
+Angolo: 95 Lunghezza: 120 Max oob: 0.11060036451555122
+Angolo: 95 Lunghezza: 130 Max oob: 0.087739694841523
+Angolo: 95 Lunghezza: 140 Max oob: 0.07448196548721997
+Angolo: 95 Lunghezza: 150 Max oob: 0.08634435304782495
+Angolo: 95 Lunghezza: 160 Max oob: 0.06943974361765848
+Angolo: 95 Lunghezza: 170 Max oob: 0.10317429110744025
+Angolo: 95 Lunghezza: 180 Max oob: 0.06713377929829134
+Angolo: 95 Lunghezza: 190 Max oob: 0.06499550253212694
+Angolo: 95 Lunghezza: 200 Max oob: 0.05163698412962947
+Angolo: 105 Lunghezza: 50 Max oob: 0.28911297392697355
+Angolo: 105 Lunghezza: 60 Max oob: 0.23852539493847846
+Angolo: 105 Lunghezza: 70 Max oob: 0.1761911043474057
+Angolo: 105 Lunghezza: 80 Max oob: 0.13992461190387373
+Angolo: 105 Lunghezza: 90 Max oob: 0.1903627695423944
+Angolo: 105 Lunghezza: 100 Max oob: 0.13821987443400208
+Angolo: 105 Lunghezza: 110 Max oob: 0.12849140578574525
+Angolo: 105 Lunghezza: 120 Max oob: 0.10317014649354572
+Angolo: 105 Lunghezza: 130 Max oob: 0.0633037089936026
+Angolo: 105 Lunghezza: 140 Max oob: 0.07480070602009725
+Angolo: 105 Lunghezza: 150 Max oob: 0.10766710271063107
+Angolo: 105 Lunghezza: 160 Max oob: 0.04824091865098801
+Angolo: 105 Lunghezza: 170 Max oob: 0.1092296152519564
+Angolo: 105 Lunghezza: 180 Max oob: 0.1474392664176305
+Angolo: 105 Lunghezza: 190 Max oob: 0.1127280803192321
+Angolo: 105 Lunghezza: 200 Max oob: 0.08603907392600085
+Angolo: 115 Lunghezza: 50 Max oob: 0.3282170638014563
+Angolo: 115 Lunghezza: 60 Max oob: 0.22252668819611188
+Angolo: 115 Lunghezza: 70 Max oob: 0.1322210763294538
+Angolo: 115 Lunghezza: 80 Max oob: 0.05169680780453301
+Angolo: 115 Lunghezza: 90 Max oob: 0.06321018725065142
+Angolo: 115 Lunghezza: 100 Max oob: 0.02585839471531237
+Angolo: 115 Lunghezza: 110 Max oob: 0.025880531137421836
+Angolo: 115 Lunghezza: 120 Max oob: 0.02586717059902066
+Angolo: 115 Lunghezza: 130 Max oob: 0.025871700806823994
+Angolo: 115 Lunghezza: 140 Max oob: 0.02587943775961765
+Angolo: 115 Lunghezza: 150 Max oob: 0.025890488913056897
+Angolo: 115 Lunghezza: 160 Max oob: 0.025878043883878044
+Angolo: 115 Lunghezza: 170 Max oob: 0.025885662254380937
+Angolo: 115 Lunghezza: 180 Max oob: 0.025893140604462017
+Angolo: 115 Lunghezza: 190 Max oob: 0.02592198332958129
+Angolo: 115 Lunghezza: 200 Max oob: 0.025858473728427978
+Angolo: 125 Lunghezza: 50 Max oob: 0.12370870888371266
+Angolo: 125 Lunghezza: 60 Max oob: 0.12456959079032648
+Angolo: 125 Lunghezza: 70 Max oob: 0.0705100603997314
+Angolo: 125 Lunghezza: 80 Max oob: 0.03014767709992605
+Angolo: 125 Lunghezza: 90 Max oob: 0.025863854586279267
+Angolo: 125 Lunghezza: 100 Max oob: 0.025847618626021363
+Angolo: 125 Lunghezza: 110 Max oob: 0.025858101572911685
+Angolo: 125 Lunghezza: 120 Max oob: 0.025850694992144208
+Angolo: 125 Lunghezza: 130 Max oob: 0.025888759719832843
+Angolo: 125 Lunghezza: 140 Max oob: 0.02589277531608558
+Angolo: 125 Lunghezza: 150 Max oob: 0.025881371786019236
+Angolo: 125 Lunghezza: 160 Max oob: 0.025864998230395342
+Angolo: 125 Lunghezza: 170 Max oob: 0.02585973588288837
+Angolo: 125 Lunghezza: 180 Max oob: 0.025892605859617834
+Angolo: 125 Lunghezza: 190 Max oob: 0.02586795724511104
+Angolo: 125 Lunghezza: 200 Max oob: 0.02588398463901831
+Angolo: 135 Lunghezza: 50 Max oob: 0.050177976814380076
+Angolo: 135 Lunghezza: 60 Max oob: 0.02589510665889605
+Angolo: 135 Lunghezza: 70 Max oob: 0.025910135092123587
+Angolo: 135 Lunghezza: 80 Max oob: 0.025885823492848292
+Angolo: 135 Lunghezza: 90 Max oob: 0.025892688528633356
+Angolo: 135 Lunghezza: 100 Max oob: 0.025907539889642672
+Angolo: 135 Lunghezza: 110 Max oob: 0.025895820923249047
+Angolo: 135 Lunghezza: 120 Max oob: 0.025907626023058294
+Angolo: 135 Lunghezza: 130 Max oob: 0.02590211696278244
+Angolo: 135 Lunghezza: 140 Max oob: 0.025894253804693124
+Angolo: 135 Lunghezza: 150 Max oob: 0.025921079450407336
+Angolo: 135 Lunghezza: 160 Max oob: 0.025918641218587335
+Angolo: 135 Lunghezza: 170 Max oob: 0.025904329918311486
+Angolo: 135 Lunghezza: 180 Max oob: 0.025921754679645415
+Angolo: 135 Lunghezza: 190 Max oob: 0.025918066384735816
+Angolo: 135 Lunghezza: 200 Max oob: 0.025918066384735816
+Angolo: 145 Lunghezza: 50 Max oob: 0.026350637014370015
+Angolo: 145 Lunghezza: 60 Max oob: 0.025877342799110692
+Angolo: 145 Lunghezza: 70 Max oob: 0.025904336931186656
+Angolo: 145 Lunghezza: 80 Max oob: 0.025909839932359402
+Angolo: 145 Lunghezza: 90 Max oob: 0.025897431904288726
+Angolo: 145 Lunghezza: 100 Max oob: 0.025894291309856432
+Angolo: 145 Lunghezza: 110 Max oob: 0.025903529348750953
+Angolo: 145 Lunghezza: 120 Max oob: 0.025853073797554416
+Angolo: 145 Lunghezza: 130 Max oob: 0.025905878547920924
+Angolo: 145 Lunghezza: 140 Max oob: 0.025907953139443385
+Angolo: 145 Lunghezza: 150 Max oob: 0.02591717973141816
+Angolo: 145 Lunghezza: 160 Max oob: 0.025787355993819316
+Angolo: 145 Lunghezza: 170 Max oob: 0.025930650907507125
+Angolo: 145 Lunghezza: 180 Max oob: 0.025786211749067922
+Angolo: 145 Lunghezza: 190 Max oob: 0.02591482862504846
+Angolo: 145 Lunghezza: 200 Max oob: 0.025860327861170096
+Angolo: 155 Lunghezza: 50 Max oob: 0.025902477929190537
+Angolo: 155 Lunghezza: 60 Max oob: 0.025909462202027944
+Angolo: 155 Lunghezza: 70 Max oob: 0.025894125581971017
+Angolo: 155 Lunghezza: 80 Max oob: 0.02590714888768464
+Angolo: 155 Lunghezza: 90 Max oob: 0.02591781210346078
+Angolo: 155 Lunghezza: 100 Max oob: 0.0259000772081861
+Angolo: 155 Lunghezza: 110 Max oob: 0.025921146204188172
+Angolo: 155 Lunghezza: 120 Max oob: 0.0258937744835277
+Angolo: 155 Lunghezza: 130 Max oob: 0.02586101625954862
+Angolo: 155 Lunghezza: 140 Max oob: 0.02588780581822714
+Angolo: 155 Lunghezza: 150 Max oob: 0.025917197050212226
+Angolo: 155 Lunghezza: 160 Max oob: 0.025927607877547665
+Angolo: 155 Lunghezza: 170 Max oob: 0.025894219832269916
+Angolo: 155 Lunghezza: 180 Max oob: 0.025932187439269727
+Angolo: 155 Lunghezza: 190 Max oob: 0.025929294903554556
+Angolo: 155 Lunghezza: 200 Max oob: 0.02592623870722055
+Angolo: 165 Lunghezza: 50 Max oob: 0.025919007272640737
+Angolo: 165 Lunghezza: 60 Max oob: 0.02592508687907602
+Angolo: 165 Lunghezza: 70 Max oob: 0.025871211290469875
+Angolo: 165 Lunghezza: 80 Max oob: 0.025921605941499948
+Angolo: 165 Lunghezza: 90 Max oob: 0.02592199281039198
+Angolo: 165 Lunghezza: 100 Max oob: 0.02590936995144888
+Angolo: 165 Lunghezza: 110 Max oob: 0.025909756829067376
+Angolo: 165 Lunghezza: 120 Max oob: 0.02588145836777933
+Angolo: 165 Lunghezza: 130 Max oob: 0.025898953973350736
+Angolo: 165 Lunghezza: 140 Max oob: 0.02591462959808133
+Angolo: 165 Lunghezza: 150 Max oob: 0.02592479344756471
+Angolo: 165 Lunghezza: 160 Max oob: 0.02592932719971741
+Angolo: 165 Lunghezza: 170 Max oob: 0.025930085554306315
+Angolo: 165 Lunghezza: 180 Max oob: 0.02592969571618975
+Angolo: 165 Lunghezza: 190 Max oob: 0.025928504876385428
+Angolo: 165 Lunghezza: 200 Max oob: 0.025927367701158666
+Angolo: 175 Lunghezza: 50 Max oob: 0.025938784872075127
+Angolo: 175 Lunghezza: 60 Max oob: 0.02593824631575692
+Angolo: 175 Lunghezza: 70 Max oob: 0.02593850469287695
+Angolo: 175 Lunghezza: 80 Max oob: 0.025861788671506125
+Angolo: 175 Lunghezza: 90 Max oob: 0.025924628292143925
+Angolo: 175 Lunghezza: 100 Max oob: 0.025944089237543322
+Angolo: 175 Lunghezza: 110 Max oob: 0.02593728748902102
+Angolo: 175 Lunghezza: 120 Max oob: 0.025943292311452204
+Angolo: 175 Lunghezza: 130 Max oob: 0.02593702184340263
+Angolo: 175 Lunghezza: 140 Max oob: 0.025943565222650622
+Angolo: 175 Lunghezza: 150 Max oob: 0.02593840131654046
+Angolo: 175 Lunghezza: 160 Max oob: 0.025930596765644576
+Angolo: 175 Lunghezza: 170 Max oob: 0.02593675619749125
+Angolo: 175 Lunghezza: 180 Max oob: 0.025950212345628998
+Angolo: 175 Lunghezza: 190 Max oob: 0.025956615640470027
+Angolo: 175 Lunghezza: 200 Max oob: 0.02595674845787077
+Angolo: 185 Lunghezza: 50 Max oob: 0.025944778057060525
+Angolo: 185 Lunghezza: 60 Max oob: 0.025964224527694313
+Angolo: 185 Lunghezza: 70 Max oob: 0.02595796130861605
+Angolo: 185 Lunghezza: 80 Max oob: 0.025971296015998346
+Angolo: 185 Lunghezza: 90 Max oob: 0.02593769611000507
+Angolo: 185 Lunghezza: 100 Max oob: 0.025957695674096115
+Angolo: 185 Lunghezza: 110 Max oob: 0.02594436505564668
+Angolo: 185 Lunghezza: 120 Max oob: 0.025964490158552067
+Angolo: 185 Lunghezza: 130 Max oob: 0.025964755789116944
+Angolo: 185 Lunghezza: 140 Max oob: 0.02596488860429802
+Angolo: 185 Lunghezza: 150 Max oob: 0.025964895879138417
+Angolo: 185 Lunghezza: 160 Max oob: 0.02596502141938528
+Angolo: 185 Lunghezza: 170 Max oob: 0.025971284635405212
+Angolo: 185 Lunghezza: 180 Max oob: 0.02596502141938528
+Angolo: 185 Lunghezza: 190 Max oob: 0.025971557538717716
+Angolo: 185 Lunghezza: 200 Max oob: 0.025971417448751866
+Angolo: 195 Lunghezza: 50 Max oob: 0.02596105277319294
+Angolo: 195 Lunghezza: 60 Max oob: 0.025969477582567735
+Angolo: 195 Lunghezza: 70 Max oob: 0.025969379891267574
+Angolo: 195 Lunghezza: 80 Max oob: 0.025900899838359526
+Angolo: 195 Lunghezza: 90 Max oob: 0.025889866932922723
+Angolo: 195 Lunghezza: 100 Max oob: 0.02592818557669907
+Angolo: 195 Lunghezza: 110 Max oob: 0.025928790033371563
+Angolo: 195 Lunghezza: 120 Max oob: 0.02592850665266322
+Angolo: 195 Lunghezza: 130 Max oob: 0.02593990775450561
+Angolo: 195 Lunghezza: 140 Max oob: 0.025919725223910284
+Angolo: 195 Lunghezza: 150 Max oob: 0.0258575020326538
+Angolo: 195 Lunghezza: 160 Max oob: 0.02593802063505657
+Angolo: 195 Lunghezza: 170 Max oob: 0.02593073672880064
+Angolo: 195 Lunghezza: 180 Max oob: 0.025939991102560733
+Angolo: 195 Lunghezza: 190 Max oob: 0.025923009240485184
+Angolo: 195 Lunghezza: 200 Max oob: 0.025976661689159686
+Angolo: 205 Lunghezza: 50 Max oob: 0.025878629039872814
+Angolo: 205 Lunghezza: 60 Max oob: 0.025911767196659663
+Angolo: 205 Lunghezza: 70 Max oob: 0.02592429464731416
+Angolo: 205 Lunghezza: 80 Max oob: 0.02593785110273772
+Angolo: 205 Lunghezza: 90 Max oob: 0.025961149921957194
+Angolo: 205 Lunghezza: 100 Max oob: 0.02592965509416234
+Angolo: 205 Lunghezza: 110 Max oob: 0.025957782357625914
+Angolo: 205 Lunghezza: 120 Max oob: 0.02595166726410214
+Angolo: 205 Lunghezza: 130 Max oob: 0.025936781345731186
+Angolo: 205 Lunghezza: 140 Max oob: 0.02586952525859576
+Angolo: 205 Lunghezza: 150 Max oob: 0.025952620955342898
+Angolo: 205 Lunghezza: 160 Max oob: 0.02594560449026284
+Angolo: 205 Lunghezza: 170 Max oob: 0.025944386050754775
+Angolo: 205 Lunghezza: 180 Max oob: 0.025932114091014924
+Angolo: 205 Lunghezza: 190 Max oob: 0.025937386954641428
+Angolo: 205 Lunghezza: 200 Max oob: 0.025962440242321527
+Angolo: 215 Lunghezza: 50 Max oob: 0.025912410258412955
+Angolo: 215 Lunghezza: 60 Max oob: 0.025931537571798002
+Angolo: 215 Lunghezza: 70 Max oob: 0.02595111925983795
+Angolo: 215 Lunghezza: 80 Max oob: 0.025942328996597763
+Angolo: 215 Lunghezza: 90 Max oob: 0.02594591548154379
+Angolo: 215 Lunghezza: 100 Max oob: 0.025946754874258682
+Angolo: 215 Lunghezza: 110 Max oob: 0.025953945238610943
+Angolo: 215 Lunghezza: 120 Max oob: 0.02596824046425572
+Angolo: 215 Lunghezza: 130 Max oob: 0.025939665071223028
+Angolo: 215 Lunghezza: 140 Max oob: 0.025971362711829538
+Angolo: 215 Lunghezza: 150 Max oob: 0.025945669568559926
+Angolo: 215 Lunghezza: 160 Max oob: 0.02594645322222544
+Angolo: 215 Lunghezza: 170 Max oob: 0.025952775559886065
+Angolo: 215 Lunghezza: 180 Max oob: 0.0259010178223954
+Angolo: 215 Lunghezza: 190 Max oob: 0.025939622190616407
+Angolo: 215 Lunghezza: 200 Max oob: 0.025924540722250256
+Angolo: 225 Lunghezza: 50 Max oob: 0.02589592332036128
+Angolo: 225 Lunghezza: 60 Max oob: 0.025892630950339557
+Angolo: 225 Lunghezza: 70 Max oob: 0.025893023312468122
+Angolo: 225 Lunghezza: 80 Max oob: 0.025900370205103496
+Angolo: 225 Lunghezza: 90 Max oob: 0.025909153229000892
+Angolo: 225 Lunghezza: 100 Max oob: 0.025933415134465565
+Angolo: 225 Lunghezza: 110 Max oob: 0.025925598447097853
+Angolo: 225 Lunghezza: 120 Max oob: 0.0259405248079998
+Angolo: 225 Lunghezza: 130 Max oob: 0.025945815073750156
+Angolo: 225 Lunghezza: 140 Max oob: 0.025949972528996
+Angolo: 225 Lunghezza: 150 Max oob: 0.025909557086932766
+Angolo: 225 Lunghezza: 160 Max oob: 0.025937898689119332
+Angolo: 225 Lunghezza: 170 Max oob: 0.02590831928892401
+Angolo: 225 Lunghezza: 180 Max oob: 0.025958390018062105
+Angolo: 225 Lunghezza: 190 Max oob: 0.0259275713092304
+Angolo: 225 Lunghezza: 200 Max oob: 0.02588940489461855
+Angolo: 235 Lunghezza: 50 Max oob: 0.08348463227606717
+Angolo: 235 Lunghezza: 60 Max oob: 0.07153999807131861
+Angolo: 235 Lunghezza: 70 Max oob: 0.03423000189885306
+Angolo: 235 Lunghezza: 80 Max oob: 0.025918394188833238
+Angolo: 235 Lunghezza: 90 Max oob: 0.02591239664855416
+Angolo: 235 Lunghezza: 100 Max oob: 0.025920520533569302
+Angolo: 235 Lunghezza: 110 Max oob: 0.025920542340672537
+Angolo: 235 Lunghezza: 120 Max oob: 0.025905054506594194
+Angolo: 235 Lunghezza: 130 Max oob: 0.025915493277456014
+Angolo: 235 Lunghezza: 140 Max oob: 0.025943956121935674
+Angolo: 235 Lunghezza: 150 Max oob: 0.025931512313523863
+Angolo: 235 Lunghezza: 160 Max oob: 0.025937350212720145
+Angolo: 235 Lunghezza: 170 Max oob: 0.025904305921343074
+Angolo: 235 Lunghezza: 180 Max oob: 0.025958264292046618
+Angolo: 235 Lunghezza: 190 Max oob: 0.02592215331788439
+Angolo: 235 Lunghezza: 200 Max oob: 0.025889826143264183
+Angolo: 245 Lunghezza: 50 Max oob: 0.15041012443550938
+Angolo: 245 Lunghezza: 60 Max oob: 0.15330451758019503
+Angolo: 245 Lunghezza: 70 Max oob: 0.08408638579122119
+Angolo: 245 Lunghezza: 80 Max oob: 0.02593909208822409
+Angolo: 245 Lunghezza: 90 Max oob: 0.026954665066884043
+Angolo: 245 Lunghezza: 100 Max oob: 0.025897776128122274
+Angolo: 245 Lunghezza: 110 Max oob: 0.025930660689438056
+Angolo: 245 Lunghezza: 120 Max oob: 0.025923136499556243
+Angolo: 245 Lunghezza: 130 Max oob: 0.025907936906665485
+Angolo: 245 Lunghezza: 140 Max oob: 0.025956362648752562
+Angolo: 245 Lunghezza: 150 Max oob: 0.025909378323484167
+Angolo: 245 Lunghezza: 160 Max oob: 0.025973013647958787
+Angolo: 245 Lunghezza: 170 Max oob: 0.025964007998383387
+Angolo: 245 Lunghezza: 180 Max oob: 0.02596396839835935
+Angolo: 245 Lunghezza: 190 Max oob: 0.025951946589053865
+Angolo: 245 Lunghezza: 200 Max oob: 0.025888209149388164
+Angolo: 255 Lunghezza: 50 Max oob: 0.18220113511850633
+Angolo: 255 Lunghezza: 60 Max oob: 0.12268152354523587
+Angolo: 255 Lunghezza: 70 Max oob: 0.08945511860552957
+Angolo: 255 Lunghezza: 80 Max oob: 0.09906095894997757
+Angolo: 255 Lunghezza: 90 Max oob: 0.09728155072533773
+Angolo: 255 Lunghezza: 100 Max oob: 0.0786844782958297
+Angolo: 255 Lunghezza: 110 Max oob: 0.07585946874928207
+Angolo: 255 Lunghezza: 120 Max oob: 0.07838122716545448
+Angolo: 255 Lunghezza: 130 Max oob: 0.04835562253662984
+Angolo: 255 Lunghezza: 140 Max oob: 0.052968368909125596
+Angolo: 255 Lunghezza: 150 Max oob: 0.05184325552750402
+Angolo: 255 Lunghezza: 160 Max oob: 0.025958920084692805
+Angolo: 255 Lunghezza: 170 Max oob: 0.07922300187126263
+Angolo: 255 Lunghezza: 180 Max oob: 0.11252253694599601
+Angolo: 255 Lunghezza: 190 Max oob: 0.09507778552000368
+Angolo: 255 Lunghezza: 200 Max oob: 0.08943654034876891
+Angolo: 265 Lunghezza: 50 Max oob: 0.257647374220353
+Angolo: 265 Lunghezza: 60 Max oob: 0.1686826641316881
+Angolo: 265 Lunghezza: 70 Max oob: 0.18016806376058114
+Angolo: 265 Lunghezza: 80 Max oob: 0.3846350982636352
+Angolo: 265 Lunghezza: 90 Max oob: 0.20287888451502134
+Angolo: 265 Lunghezza: 100 Max oob: 0.09129120551866376
+Angolo: 265 Lunghezza: 110 Max oob: 0.06732299419957066
+Angolo: 265 Lunghezza: 120 Max oob: 0.08926085723931454
+Angolo: 265 Lunghezza: 130 Max oob: 0.04611683509834952
+Angolo: 265 Lunghezza: 140 Max oob: 0.03257090704488563
+Angolo: 265 Lunghezza: 150 Max oob: 0.0493544698582995
+Angolo: 265 Lunghezza: 160 Max oob: 0.02591526732875038
+Angolo: 265 Lunghezza: 170 Max oob: 0.05939936026600279
+Angolo: 265 Lunghezza: 180 Max oob: 0.03553286545414325
+Angolo: 265 Lunghezza: 190 Max oob: 0.031091567023780575
+Angolo: 265 Lunghezza: 200 Max oob: 0.025958948792645375
+Angolo: 275 Lunghezza: 50 Max oob: 0.30185294142748276
+Angolo: 275 Lunghezza: 60 Max oob: 0.4603401553714789
+Angolo: 275 Lunghezza: 70 Max oob: 0.5588480581931329
+Angolo: 275 Lunghezza: 80 Max oob: 0.2893114397668739
+Angolo: 275 Lunghezza: 90 Max oob: 0.18626062907269103
+Angolo: 275 Lunghezza: 100 Max oob: 0.15389425232409404
+Angolo: 275 Lunghezza: 110 Max oob: 0.22966548061905123
+Angolo: 275 Lunghezza: 120 Max oob: 0.2238051164725977
+Angolo: 275 Lunghezza: 130 Max oob: 0.17920585402548794
+Angolo: 275 Lunghezza: 140 Max oob: 0.10971244475396413
+Angolo: 275 Lunghezza: 150 Max oob: 0.0978001550011357
+Angolo: 275 Lunghezza: 160 Max oob: 0.07077908343408024
+Angolo: 275 Lunghezza: 170 Max oob: 0.08546744498906855
+Angolo: 275 Lunghezza: 180 Max oob: 0.061868192707726255
+Angolo: 275 Lunghezza: 190 Max oob: 0.05718833797652456
+Angolo: 275 Lunghezza: 200 Max oob: 0.02592580754545537
+Angolo: 285 Lunghezza: 50 'The road is too sharp'
+Angolo: 285 Lunghezza: 60 'The road is too sharp'
+Angolo: 285 Lunghezza: 70 Max oob: 0.29934663266195827
+Angolo: 285 Lunghezza: 80 Max oob: 0.4131230667082898
+Angolo: 285 Lunghezza: 90 Max oob: 0.20814044037432022
+Angolo: 285 Lunghezza: 100 Max oob: 0.20322253617336772
+Angolo: 285 Lunghezza: 110 Max oob: 0.28684879460700574
+Angolo: 285 Lunghezza: 120 Max oob: 0.16127258103063313
+Angolo: 285 Lunghezza: 130 Max oob: 0.13728010982013017
+Angolo: 285 Lunghezza: 140 Max oob: 0.4444666751342944
+Angolo: 285 Lunghezza: 150 Max oob: 0.33112056780572374
+Angolo: 285 Lunghezza: 160 Max oob: 0.39481369019965795
+Angolo: 285 Lunghezza: 170 Max oob: 0.13335697027235005
+Angolo: 285 Lunghezza: 180 Max oob: 0.14668141640360777
+Angolo: 285 Lunghezza: 190 Max oob: 0.1077628535908236
+Angolo: 285 Lunghezza: 200 Max oob: 0.08233206998766451
+Angolo: 295 Lunghezza: 50 'The road is too sharp'
+Angolo: 295 Lunghezza: 60 'The road is too sharp'
+Angolo: 295 Lunghezza: 70 'The road is too sharp'
+Angolo: 295 Lunghezza: 80 'The road is too sharp'
+Angolo: 295 Lunghezza: 90 Max oob: 0.2430415886027847
+Angolo: 295 Lunghezza: 100 Max oob: 0.2613791215563853
+Angolo: 295 Lunghezza: 110 Max oob: 0.22889083947370603
+Angolo: 295 Lunghezza: 120 Max oob: 0.2107111148094899
+Angolo: 295 Lunghezza: 130 Max oob: 0.42696108954521717
+Angolo: 295 Lunghezza: 140 Max oob: 0.44241594169163445
+Angolo: 295 Lunghezza: 150 Max oob: 0.5212160722730399
+Angolo: 295 Lunghezza: 160 Max oob: 0.588121928736681
+Angolo: 295 Lunghezza: 170 Max oob: 0.1675474923959568
+Angolo: 295 Lunghezza: 180 Max oob: 0.17224631977503202
+Angolo: 295 Lunghezza: 190 Max oob: 0.1404503362127979
+Angolo: 295 Lunghezza: 200 Max oob: 0.23174118452377723
+Angolo: 305 Lunghezza: 50 'The road is too sharp'
+Angolo: 305 Lunghezza: 60 'The road is too sharp'
+Angolo: 305 Lunghezza: 70 'The road is too sharp'
+Angolo: 305 Lunghezza: 80 'The road is too sharp'
+Angolo: 305 Lunghezza: 90 'The road is too sharp'
+Angolo: 305 Lunghezza: 100 'The road is too sharp'
+Angolo: 305 Lunghezza: 110 'The road is too sharp'
+Angolo: 305 Lunghezza: 120 'The road is too sharp'
+Angolo: 305 Lunghezza: 130 Max oob: 0.5170994944165241
+Angolo: 305 Lunghezza: 140 Max oob: 0.5026612577245761
+Angolo: 305 Lunghezza: 150 Max oob: 0.5482534669372796
+Angolo: 305 Lunghezza: 160 Max oob: 0.5913531532302299
+Angolo: 305 Lunghezza: 170 Max oob: 0.5841717892075957
+Angolo: 305 Lunghezza: 180 Max oob: 0.20954385437795497
+Angolo: 305 Lunghezza: 190 Max oob: 0.6200377616379257
+Angolo: 305 Lunghezza: 200 Max oob: 0.1668478193113836
+Angolo: 315 Lunghezza: 50 'The road is self-intersecting'
+Angolo: 315 Lunghezza: 60 'The road is too sharp'
+Angolo: 315 Lunghezza: 70 'The road is too sharp'
+Angolo: 315 Lunghezza: 80 'The road is too sharp'
+Angolo: 315 Lunghezza: 90 'The road is too sharp'
+Angolo: 315 Lunghezza: 100 'The road is too sharp'
+Angolo: 315 Lunghezza: 110 'The road is too sharp'
+Angolo: 315 Lunghezza: 120 'The road is too sharp'
+Angolo: 315 Lunghezza: 130 'The road is too sharp'
+Angolo: 315 Lunghezza: 140 'The road is too sharp'
+Angolo: 315 Lunghezza: 150 'The road is too sharp'
+Angolo: 315 Lunghezza: 160 'The road is too sharp'
+Angolo: 315 Lunghezza: 170 'The road is too sharp'
+Angolo: 315 Lunghezza: 180 'The road is too sharp'
+Angolo: 315 Lunghezza: 190 Max oob: 0.799969511328284
+Angolo: 315 Lunghezza: 200 Max oob: 0.7981342595342812

@@ -159,13 +159,15 @@ class AngleLengthGenerator:
 
     def check_oob(self):
         with open('saveoob.txt', 'w') as f:
-            test_executor = BeamngExecutor(generation_budget=10000, execution_budget=10000, time_budget=10000,
+            test_executor = BeamngExecutor(generation_budget=10000, execution_budget=10000, time_budget=200000,
                                        result_folder="results", map_size=500, beamng_home="C:\\Users\\kikki\\BeamNG",
                                        beamng_user="C:\\Users\\kikki\\BeamNG_user",
                                        road_visualizer=RoadTestVisualizer(map_size=500))
             (x, y) = (250, 250)
             for a in range(45, 316, 10):
+                print("Angolo: ",a)
                 for l in range(50, 201, 10):
+                    print("Lunghezza: ", l)
                     final = self.three_points(x, y, a, l)
                     flag, res = self.check_final_and_test(final, test_executor)
                     if flag:
@@ -185,8 +187,7 @@ class AngleLengthGenerator:
                         f.write(" ")
                         f.write(repr(res))
                         f.write('\n')
-            f.close()
-
+        print("Fine file.\n")
 
 
     # def start(self):
