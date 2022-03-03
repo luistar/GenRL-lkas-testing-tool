@@ -159,42 +159,47 @@ class AngleLengthGenerator:
 
     def check_oob(self):
         with open('saveoob.txt', 'w') as f:
-            test_executor = BeamngExecutor(generation_budget=10000, execution_budget=10000, time_budget=200000,
-                                       result_folder="results", map_size=500, beamng_home="C:\\Users\\kikki\\BeamNG",
-                                       beamng_user="C:\\Users\\kikki\\BeamNG_user",
-                                       road_visualizer=RoadTestVisualizer(map_size=500))
             (x, y) = (250, 250)
-            for a in range(45, 316, 10):
-                print("Angolo: ",a)
-                for l in range(50, 201, 10):
-                    print("Lunghezza: ", l)
-                    final = self.three_points(x, y, a, l)
-                    flag, res = self.check_final_and_test(final, test_executor)
-                    if flag:
-                        moob = self.get_max_oob_percentage(res)
-                        f.write("Angolo: ")
-                        f.write(repr(a))
-                        f.write(" Lunghezza: ")
-                        f.write(repr(l))
-                        f.write(" Max oob: ")
-                        f.write(repr(moob))
-                        f.write('\n')
-                    else:
-                        f.write("Angolo: ")
-                        f.write(repr(a))
-                        f.write(" Lunghezza: ")
-                        f.write(repr(l))
-                        f.write(" ")
-                        f.write(repr(res))
-                        f.write('\n')
-        print("Fine file.\n")
-
+        #    test_executor = BeamngExecutor(generation_budget=10000, execution_budget=10000, time_budget=200000,
+        #                               result_folder="results", map_size=500, beamng_home="C:\\Users\\kikki\\BeamNG",
+        #                               beamng_user="C:\\Users\\kikki\\BeamNG_user",
+        #                               road_visualizer=RoadTestVisualizer(map_size=500))
+        #     for a in range(45, 316, 10):
+        #         print("Angolo: ",a)
+        #         for l in range(50, 201, 10):
+        #             print("Lunghezza: ", l)
+        #             final = self.three_points(x, y, a, l)
+        #             flag, res = self.check_final_and_test(final, test_executor)
+        #             if flag:
+        #                 moob = self.get_max_oob_percentage(res)
+        #                 f.write("Angolo: ")
+        #                 f.write(repr(a))
+        #                 f.write(" Lunghezza: ")
+        #                 f.write(repr(l))
+        #                 f.write(" Max oob: ")
+        #                 f.write(repr(moob))
+        #                 f.write('\n')
+        #             else:
+        #                 f.write("Angolo: ")
+        #                 f.write(repr(a))
+        #                 f.write(" Lunghezza: ")
+        #                 f.write(repr(l))
+        #                 f.write(" ")
+        #                 f.write(repr(res))
+        #                 f.write('\n')
+        # print("Fine file.\n")
+        a = 45
+        test_executor = MockExecutor(result_folder="results", time_budget=200000, map_size=500,
+                                     road_visualizer=RoadTestVisualizer(map_size=500))
+        for l in range(190, 191, 10):
+            final = self.three_points(x, y, a, l)
+            flag, res = self.check_final_and_test(final, test_executor)
 
     # def start(self):
     #
-    #     #test_executor = MockExecutor(result_folder="results", time_budget=1e10, map_size=500, road_visualizer=RoadTestVisualizer(map_size=500))
+    #     test_executor = MockExecutor(result_folder="results", time_budget=1e10, map_size=500, road_visualizer=RoadTestVisualizer(map_size=500))
     #
-    #     test_executor = BeamngExecutor(generation_budget=10000, execution_budget=10000, time_budget=10000, result_folder="results", map_size=500, beamng_home="C:\\Users\\kikki\\BeamNG", beamng_user="C:\\Users\\kikki\\BeamNG_user", road_visualizer=RoadTestVisualizer(map_size=500))
+    #     #test_executor = BeamngExecutor(generation_budget=10000, execution_budget=10000, time_budget=10000, result_folder="results", map_size=500, beamng_home="C:\\Users\\kikki\\BeamNG", beamng_user="C:\\Users\\kikki\\BeamNG_user", road_visualizer=RoadTestVisualizer(map_size=500))
     #
     #     (x, y) = (60, 180)#(random.uniform(self.min_coordinate, self.max_coordinate), random.uniform(self.min_coordinate, self.max_coordinate))
     #     angle = 70#random.randint(45, 315) #meno di 45 o più di 315 -> the road is too sharp
@@ -204,7 +209,6 @@ class AngleLengthGenerator:
     #     print(final)
     #     # final = self.more_points(x, y, angle, length)
     #     execution_data = self.check_final_and_test(final, test_executor)
-    #     print(self.get_max_oob_percentage(execution_data))
 
     def start(self):
         self.check_oob()
